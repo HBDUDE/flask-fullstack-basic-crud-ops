@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -10,9 +9,6 @@ db = SQLAlchemy(app)
 class Product(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(15), unique=True, nullable=False)
-  # price = db.Column(db.Float, nullable=False)
-  # qty = db.Column(db.Integer, nullable=False)
-  # date_added = db.Column(db.datetime, nullable=False, default=datetime.utcnow
 
   def __init__(self, name):
     self.name = name
