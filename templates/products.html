@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>Products</title>
+{% endblock %}
+{% block body %}
+  <h1>Products</h1>
+  <hr>
+  <form action="/products" method="post">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" placeholder="Type name of product">
+    </div>
+  </form>
+  <hr>
+  {% for p in products %}
+      <h3>{{ p.name }}</h3>
+      <a href="/edit/{{ p.id }}">Edit</a>
+      <a href="/delete/{{ p.id }}">Delete</a>
+    <hr>
+  {% endfor %}
+{% endblock %}
